@@ -1,5 +1,5 @@
 {
-  "name": "folo-mcp",
+  "name": "@iflow-mcp/hyoban_folo-mcp",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.7.0",
@@ -21,7 +21,9 @@
     "Folo"
   ],
   "sideEffects": false,
-  "bin": "./dist/bin.js",
+  "bin": {
+    "iflow-mcp-hyoban-folo-mcp": "./dist/bin.js"
+  },
   "files": [
     "dist"
   ],
@@ -56,5 +58,27 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "exports": {
+    "./api": {
+      "import": {
+        "types": "./dist/es/api.d.ts",
+        "default": "./dist/es/api.js"
+      },
+      "require": {
+        "types": "./dist/cjs/api.d.cts",
+        "default": "./dist/cjs/api.cjs"
+      }
+    },
+    "./tools": {
+      "import": {
+        "types": "./dist/es/tools.d.ts",
+        "default": "./dist/es/tools.js"
+      },
+      "require": {
+        "types": "./dist/cjs/tools.d.cts",
+        "default": "./dist/cjs/tools.cjs"
+      }
+    }
   }
 }
